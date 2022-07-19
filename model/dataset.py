@@ -458,11 +458,12 @@ class ShapeNetDataset(data.Dataset):
         self.mesh_paths = np.array(self.mesh_paths)
 
     def __getitem__(self, idx):
-
+        label = 0
         feats, center, cordinates, faces, Fs = load_mesh_shape(self.mesh_paths[idx], augments=self.augments,
                                                              request=self.feats)
 
-        return   feats, center, cordinates, faces, Fs, str(self.mesh_paths[idx])
+        return   feats, center, cordinates, faces, Fs, label, str(self.mesh_paths[idx])
+
 
 
     def __len__(self):

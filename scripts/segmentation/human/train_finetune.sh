@@ -1,5 +1,5 @@
 python3.9 train_seg.py train \
-  --dataroot ./datasets/HumanBody-NS-256-3/ \
+  --dataroot ./datasets/HumanBody-NS-256-3 \
 	--weight_decay 0.05 --optim adamw \
 	--lr 1e-4 --n_epoch 100 \
 	--batch_size 16 --gamma 0.1 \

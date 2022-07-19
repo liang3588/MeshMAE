@@ -12,6 +12,6 @@ python3.9 train_cls.py test \
 	--decoder_depth 6 \
 	--decoder_dim 512 \
 	--decoder_num_heads 16 \
-  --checkpoint "./checkpoints/modelnet_finetune.pkl" \
+  --checkpoint "./checkpoints/ModelNet40.pkl" \
 	--num_warmup_steps "2" \
 	--dim 768

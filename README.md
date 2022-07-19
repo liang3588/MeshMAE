@@ -12,18 +12,17 @@ pip install -r requirements.txt
 ```
 
 
-To install PyGem:
-```
-Please refer to Pygem (https://github.com/mathLab/PyGeM)
-```
+To install PyGem, please refer to [Pygem](https://github.com/mathLab/PyGeM).
+
 
 ## Fetch Data
+### Datasets
 Here, we provide the download links of the datasets for pre-train, classification and segmentation. 
 
-- ModelNet40 [here](https://cloud.tsinghua.edu.cn/f/af5c682587cc4f9da9b8/?dl=1)
+- ModelNet40 [here](https://drive.google.com/file/d/10oX-rqWg1g416LcCSCgSlcgZp_TJii7K/view?usp=sharing)
 - Humanbody [here](https://drive.google.com/file/d/1XaqMC8UrIZ_N77gN83PI3VK03G5IJskt/view?usp=sharing)
 - COSEG-aliens [here](https://drive.google.com/file/d/12QCv2IUySoSzxeuvERGzgmE7YY3QzjfW/view?usp=sharing)
-- ShapeNet [here](https://pan.quark.cn/s/eebb562558c6)
+- ShapeNet [here](https://shapenet.org)
 
 
 
@@ -36,12 +35,28 @@ For example, the root of ModelNet40 should be:
 ```
 
 
+To process the raw data, please use data_preprocess/manifold.py, which can transform non-manifold mesh data into manifold and simplify it to 500 faces.
+
+To remesh the meshes, you can refer to the datagen_maps.py of [SubdivNet](https://github.com/lzhengning/SubdivNet), which can generate hierarchical structures.
+
+
+### Models
+Here, we provide the download links of the pre-trained models.
+
+| Task              | Dataset        | Baseline                                                                                   | Finetune                                                                                   |      
+|-------------------|----------------|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| Pre-training      | ShapeNet       | [here](https://drive.google.com/file/d/1MOGlOfacoRL6ZrF4AAyB6akmio4Ek3es/view?usp=sharing) |---                                                                                        |
+| Classification    | ModelNet40     | [here](https://drive.google.com/file/d/1gvqqnBR9EpWmoOgbe5lINc-6pfpim-uI/view?usp=sharing) | [here](https://drive.google.com/file/d/1kuo_Wz5lFDq7RZNUCI6LhK6q0szfyqfU/view?usp=sharing) |
+| Segmentation      | HumanBody      | [here](https://drive.google.com/file/d/1WgPGiVqR891UF33S8s2QlsgWwyQLuilP/view?usp=sharing) | [here](https://drive.google.com/file/d/1q7yeBpMTuHhIeKXn8K_7ofAZ9pum9xot/view?usp=sharing)                                                                                   |
+| Segmentation      | Coseg-alien    | [here](https://drive.google.com/file/d/1UyDwkDtkU9eFAuv8nPT_M35Y6SnalVTI/view?usp=sharing) | [here](https://drive.google.com/file/d/1PN6PBqWaBZ4zmiq3omCkEzMNonVovfQX/view?usp=sharing) |
+
+
 ## Pretrain
 
 
 * To pretrain on the ShapeNet dataset, you should run this command:
 ```
-sh scripts/pretrain/train_pretrain_sn.sh
+sh scripts/pretrain/train_pretrain.sh
 ```
  
 
@@ -88,13 +103,4 @@ For example, the root of pre-trained model should be:
 ```
 
 
-## Models
 
-Here, we provide the download links of the pre-trained models.
-
-| Task              | Dataset        | Baseline                                                                                   | Finetune                                                                                   |      
-|-------------------|----------------|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-| Pre-training      | ShapeNet       | [here](https://drive.google.com/file/d/1MOGlOfacoRL6ZrF4AAyB6akmio4Ek3es/view?usp=sharing) |---                                                                                        |
-| Classification    | ModelNet40     | [here](https://drive.google.com/file/d/1gvqqnBR9EpWmoOgbe5lINc-6pfpim-uI/view?usp=sharing) | [here](https://drive.google.com/file/d/1kuo_Wz5lFDq7RZNUCI6LhK6q0szfyqfU/view?usp=sharing) |
-| Segmentation      | HumanBody      | [here](https://drive.google.com/file/d/1WgPGiVqR891UF33S8s2QlsgWwyQLuilP/view?usp=sharing) | [here](https://drive.google.com/file/d/1q7yeBpMTuHhIeKXn8K_7ofAZ9pum9xot/view?usp=sharing)                                                                                   |
-| Segmentation      | Coseg-alien    | [here](https://drive.google.com/file/d/1UyDwkDtkU9eFAuv8nPT_M35Y6SnalVTI/view?usp=sharing) | [here](https://drive.google.com/file/d/1D9tvEwjSb2lEc4acGAtmgJEGttP2SIzC/view?usp=sharing) |

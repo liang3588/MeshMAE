@@ -11,3 +11,4 @@ pathlib
 os
 scipy
 csv
+trimesh

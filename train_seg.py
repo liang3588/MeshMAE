@@ -145,6 +145,7 @@ if __name__ == '__main__':
     parser.add_argument('--patch_size', type=int, required=True)
     parser.add_argument('--batch_size', type=int, default=48)
     parser.add_argument('--n_epoch', type=int, default=100)
+    parser.add_argument('--max_epoch', type=int, default=300)
     parser.add_argument('--drop_path', type=float, default=0)
     parser.add_argument('--seed', type=int, default=None)
     parser.add_argument('--n_worker', type=int, default=4)
@@ -156,7 +157,7 @@ if __name__ == '__main__':
     parser.add_argument('--lw2', type=float, default=0.5)
     parser.add_argument('--fpn', action='store_true')
     parser.add_argument('--face_pos', action='store_true')
-    parser.add_argument('--lr_min', type=float, default=1e-3)
+    parser.add_argument('--lr_min', type=float, default=1e-5)
     parser.add_argument('--gamma', type=float, default=0.1)
     parser.add_argument('--dataset_name', type=str, default='alien', choices=['alien', 'human'])
     parser.add_argument('--seg_parts', type=int, default=4)
@@ -201,18 +202,14 @@ if __name__ == '__main__':
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     net.to(device)
     # ========== Optimizer ==========
-    if args.optim == 'adam':
-        optim = optim.Adam(net.parameters(), lr=args.lr, weight_decay=args.weight_decay)
-    elif args.optim == 'SGD':
-        optim = optim.SGD(net.parameters(), lr=args.lr, momentum=0.9)
-    else:
+    if args.optim == 'adamw':
         optim = optim.AdamW(net.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
     if args.lr_milestones is not None:
         scheduler = MultiStepLR(optim, milestones=args.lr_milestones, gamma=args.gamma)
     else:
 
-        scheduler = CosineAnnealingLR(optim, T_max=args.n_epoch, eta_min=args.lr_min, last_epoch=-1)
+        scheduler = CosineAnnealingLR(optim, T_max=args.max_epoch, eta_min=args.lr_min, last_epoch=-1)
 
     criterion = nn.CrossEntropyLoss()
     checkpoint_path = os.path.join('checkpoints', name)

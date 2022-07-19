@@ -10,4 +10,4 @@ python3.9 train_seg.py test \
   --augment_scale --augment_orient --drop_path 0.1 \
 	--name "humantest" --face_pos --lw1 1 --lw2 1 \
 	--dataset_name human --seg_parts 8 \
-	--checkpoint ./checkpoints/human_finetune.pkl
+	--checkpoint ./checkpoints/human.pkl

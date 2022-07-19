@@ -1,7 +1,7 @@
 python3.9 train_pretrain.py train \
 	--dataroot ./datasets/Manifold40-MAPS-96-3/ \
 	--batch_size 32 --n_classes 40 \
-	--augment_scale --n_epoch 300 \
+	--augment_scale --augment_deformation --n_epoch 100 \
 	--name "PTmanifoldBase_cos1_0.5_of_center" \
 	--weight_decay 0.05 \
 	--mask_ratio 0.5 \

@@ -76,27 +76,22 @@ def seed_torch(seed=12):
 
 
 def plot_embedding(data, label, title):
-    """
-    :param data:数据集
-    :param label:样本标签
-    :param title:图像标题
-    :return:图像
-    """
+
     print(len(label))
     cmap = cm.rainbow(np.linspace(0, 1, len(label)))
 
     x_min, x_max = np.min(data, 0), np.max(data, 0)
-    data = (data - x_min) / (x_max - x_min)  # 对数据进行归一化处理
-    fig = plt.figure()  # 创建图形实例
-    # ax = plt.subplot(111)
+    data = (data - x_min) / (x_max - x_min)
+    fig = plt.figure()
+
     for i in range(data.shape[0]):
         c = cm.rainbow(int(255 / 40 * label[i]))
         # plt.text(data[i, 0], data[i, 1], str(label[i]), color=plt.cm.Set1(label[i] / 40),  fontdict={'weight': 'bold', 'size': 7})
         plt.scatter(data[i, 0], data[i, 1], color=c, alpha=0.5)
-    plt.xticks()  # 指定坐标的刻度
+    plt.xticks()
     plt.yticks()
     plt.title(title, fontsize=9)
-    # 返回值
+
     return fig
 
 
@@ -128,8 +123,8 @@ def train(net, optim, scheduler, names, criterion, train_dataset, epoch, args):
     epoch_loss = running_loss / n_samples
     epoch_acc = running_corrects / n_samples
     print('epoch ({:}): {:} Train Loss: {:.4f} Acc: {:.4f}'.format(names, epoch, epoch_loss, epoch_acc))
-    message = 'epoch ({:}): {:} Train Loss: {:.4f} Acc: {:.4f}'.format(names, epoch, epoch_loss, epoch_acc)
-    with open(os.path.join('checkpoints', name, 'log.txt'), 'a') as f:
+    message = 'epoch ({:}): {:} Train Loss: {:.4f} Acc: {:.4f}\n'.format(names, epoch, epoch_loss, epoch_acc)
+    with open(os.path.join('checkpoints', names, 'log.txt'), 'a') as f:
         f.write(message)
 
 def test(net, names, criterion, test_dataset, epoch, args):
@@ -183,8 +178,8 @@ def test(net, names, criterion, test_dataset, epoch, args):
     message = 'epoch ({:}): {:} test Loss: {:.4f} Acc: {:.4f} Best Acc: {:.4f} '.format(names, epoch, epoch_loss,
                                                                                        epoch_acc,
                                                                                        test.best_acc)
-    message += 'test acc [voted] = {:} Best acc [voted] = {:}'.format(epoch_vacc, test.best_vacc)
-    with open(os.path.join('checkpoints', name, 'log.txt'), 'a') as f:
+    message += 'test acc [voted] = {:} Best acc [voted] = {:}\n'.format(epoch_vacc, test.best_vacc)
+    with open(os.path.join('checkpoints', names, 'log.txt'), 'a') as f:
         f.write(message)
     print(message)
 
@@ -255,11 +250,7 @@ if __name__ == '__main__':
                         decoder_depth=args.decoder_depth).to(device)
 
     # ========== Optimizer ==========
-    if args.optim.lower() == 'adam':
-        optim = optim.Adam(net.parameters(), lr=args.lr, weight_decay=args.weight_decay)
-    elif args.optim.lower() == 'sgd':
-        optim = optim.SGD(net.parameters(), lr=args.lr, momentum=0.9)
-    else:
+    if args.optim.lower() == 'adamw':
         optim = optim.AdamW(net.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
     if args.lr_milestones.lower() != 'none':
