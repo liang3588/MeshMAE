@@ -1,5 +1,5 @@
-# meshMAE
-This is the implementation of MeshMAE.
+## MeshMAE: Masked Autoencoders for 3D Mesh Data Analysis, ECCV 2022
+This is the PyTorch implementation of our MeshMAE.
 ## Requirements
 
 * python 3.9+
@@ -54,7 +54,7 @@ Here, we provide the download links of the pre-trained models.
 ## Pretrain
 
 
-* To pretrain on the ShapeNet dataset, you should run this command:
+* To pretrain on the ShapeNet dataset, run this command:
 ```
 sh scripts/pretrain/train_pretrain.sh
 ```
@@ -65,13 +65,13 @@ sh scripts/pretrain/train_pretrain.sh
 
 ### Classification
 
-* To train the classification model from scratch, you should run this command:
+* To train the classification model from scratch, run this command:
 
 ```
 sh scripts/classification/train.sh
 ```
 
-* To finetune the classification model, you should run this command:
+* To finetune the classification model, run this command:
 ```
 sh scripts/classification/train_finetune.sh
 ```
@@ -79,13 +79,13 @@ sh scripts/classification/train_finetune.sh
 
 ### Segmentation
 
-* To train the segmentation model from scratch, you should run this command:
+* To train the segmentation model from scratch, run this command:
 
 ```
 sh scripts/segmentation/<...>/train.sh
 ```
 
-* To finetune the segmentation model, you should run this command:
+* To finetune the segmentation model, run this command:
 
 ```
 sh scripts/segmentation/<...>/train_finetune.sh
@@ -93,8 +93,8 @@ sh scripts/segmentation/<...>/train_finetune.sh
 
 
 ### Finetune note 
-To finetune the model, you should create a folder 'checkpoints' in the main root, and put the
-the pre-trained model in it. And '--checkpoint' in the 'train_finetune.sh' refer to the root the pre-trained model.
+To finetune the model, please create a folder 'checkpoints' in the main root, and put the
+the pre-trained model in it. And '--checkpoint' in the 'train_finetune.sh' refers to the root the pre-trained model.
 
 For example, the root of pre-trained model should be:
 
@@ -102,5 +102,14 @@ For example, the root of pre-trained model should be:
 --checkpoint "./checkpoints/shapenet_pretrain.pkl"
 ```
 
+## Reference
+```
+@inproceedings{meshmae2022,
+  title={MeshMAE: Masked Autoencoders for 3D Mesh Data Analysis},
+  author={Liang, Yaqian and Zhao, Shanshan and Yu, Baosheng and Zhang, Jing and He, Fazhi},
+  booktitle={European Conference on Computer Vision},
+  year={2022},
+}
+```
 
 
