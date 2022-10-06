@@ -19,7 +19,7 @@ To install PyGem, please refer to [Pygem](https://github.com/mathLab/PyGeM).
 ### Datasets
 Here, we provide the download links of the datasets for pre-train, classification and segmentation. 
 
-- ModelNet40 [here](https://drive.google.com/file/d/10oX-rqWg1g416LcCSCgSlcgZp_TJii7K/view?usp=sharing)
+- ModelNet40 [here](https://drive.google.com/file/d/1Cf5zQqN-kAXF7OiZZ0hNNPT59J-Ijy-i/view?usp=sharing)
 - Humanbody [here](https://drive.google.com/file/d/1XaqMC8UrIZ_N77gN83PI3VK03G5IJskt/view?usp=sharing)
 - COSEG-aliens [here](https://drive.google.com/file/d/12QCv2IUySoSzxeuvERGzgmE7YY3QzjfW/view?usp=sharing)
 - ShapeNet [here](https://shapenet.org)
