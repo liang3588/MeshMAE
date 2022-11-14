@@ -4,7 +4,7 @@
 * Maniold
  
 
-To install ManiFold library, you should refer to  [MeshReconstruction](https://github.com/ZhaoHengJiang/MeshReconstruction) 
+To install ManiFold library, you should refer to  [MeshReconstruction](https://github.com/ZhaoHengJiang/MeshReconstruction/tree/main/Manifold) 
 
 In this code, 
 
