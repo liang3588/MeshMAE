@@ -22,7 +22,8 @@ Here, we provide the download links of the datasets for pre-train, classificatio
 - ModelNet40 [here](https://drive.google.com/file/d/1Cf5zQqN-kAXF7OiZZ0hNNPT59J-Ijy-i/view?usp=sharing)
 - Humanbody [here](https://drive.google.com/file/d/1XaqMC8UrIZ_N77gN83PI3VK03G5IJskt/view?usp=sharing)
 - COSEG-aliens [here](https://drive.google.com/file/d/12QCv2IUySoSzxeuvERGzgmE7YY3QzjfW/view?usp=sharing)
-- ShapeNet [here](https://shapenet.org)（we also provide the processed ShapeNet dataset as [here](https://pan.baidu.com/s/163AIMYWVBfQ3u2Zlw52EQg?pwd=m5bs)）提取码: m5bs
+- ShapeNet [here](https://shapenet.org)（we also provide the processed ShapeNet dataset as [here](https://pan.baidu.com/s/163AIMYWVBfQ3u2Zlw52EQg?pwd=m5bs)）
+
 
 
 
