@@ -56,7 +56,7 @@ def test(net,  names, test_dataset, epoch, args):
     # if you are going to show the reconstruct shape, please using the following codes
     #######################################################################
     net.eval()
-    for it, (feats_patch, center_patch, face_patch, coordinate_patch, np_Fs, label, mesh_paths) in enumerate(
+    for it, (feats_patch, center_patch, coordinate_patch, face_patch, np_Fs, label, mesh_paths) in enumerate(
             test_dataset):
 
         faces = face_patch.cuda()
